@@ -1,0 +1,47 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-cream",
+      "description": "Premium collagen neck cream jar with soft lighting",
+      "imageUrl": "https://picsum.photos/seed/skincare1/800/1000",
+      "imageHint": "skincare cream"
+    },
+    {
+      "id": "benefit-1",
+      "description": "Woman with youthful glowing skin",
+      "imageUrl": "https://picsum.photos/seed/skin2/600/400",
+      "imageHint": "woman beauty"
+    },
+    {
+      "id": "benefit-2",
+      "description": "Applying cream to neck",
+      "imageUrl": "https://picsum.photos/seed/skin3/600/400",
+      "imageHint": "applying cream"
+    },
+    {
+      "id": "upsell-botox",
+      "description": "Serum bottle next to cream",
+      "imageUrl": "https://picsum.photos/seed/serum/600/400",
+      "imageHint": "skincare serum"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Happy woman portrait",
+      "imageUrl": "https://picsum.photos/seed/woman1/200/200",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Happy woman portrait",
+      "imageUrl": "https://picsum.photos/seed/woman2/200/200",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Happy woman portrait",
+      "imageUrl": "https://picsum.photos/seed/woman3/200/200",
+      "imageHint": "woman portrait"
+    }
+  ]
+}
