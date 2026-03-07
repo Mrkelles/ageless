@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -12,17 +11,17 @@ import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { ShoppingCart, Package, Info, ShieldCheck } from "lucide-react";
 import Image from "next/image";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { getPlaceholderImage } from "@/lib/placeholder-images";
 
 export function OrderForm() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const upsellImg = PlaceHolderImages.find(img => img.id === "upsell-botox") || {
+  const upsellImg = getPlaceholderImage("upsell-botox", {
     imageUrl: "https://picsum.photos/seed/serum/600/400",
     description: "Serum bottle",
     imageHint: "skincare serum"
-  };
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

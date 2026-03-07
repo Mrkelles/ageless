@@ -1,14 +1,14 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Star, Truck, ShieldCheck } from "lucide-react";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { getPlaceholderImage } from "@/lib/placeholder-images";
 
 export function Hero() {
-  const heroImg = PlaceHolderImages.find(img => img.id === "hero-cream") || {
+  const heroImg = getPlaceholderImage("hero-cream", {
     imageUrl: "https://picsum.photos/seed/skincare1/800/1000",
     description: "Premium collagen neck cream",
     imageHint: "skincare cream"
-  };
+  });
 
   return (
     <section className="pt-32 pb-16 px-4 md:px-6 max-w-6xl mx-auto">

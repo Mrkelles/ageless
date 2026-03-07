@@ -1,4 +1,3 @@
-
 "use client";
 
 import * as React from "react";
@@ -19,19 +18,19 @@ const mainReviews = [
     name: "Maria",
     text: "I was always self-conscious about my 'turkey neck.' Within weeks, the sagging skin started to tighten up! I finally feel confident wearing V-neck tops again.",
     rating: 5,
-    avatar: PlaceHolderImages.find(img => img.id === "testimonial-1")?.imageUrl
+    avatarId: "testimonial-1"
   },
   {
     name: "Mrs. Enem Bassey",
     text: "It is Magical, I got mine few days back and I have been applying it, the results is great. I wish i got it earlier instead of wasting money.",
     rating: 5,
-    avatar: PlaceHolderImages.find(img => img.id === "testimonial-2")?.imageUrl
+    avatarId: "testimonial-2"
   },
   {
     name: "Tare",
     text: "The swelling went down, and my skin feels firmer and more toned. My husband noticed and asked what I've been doing differently! Thanks to the Jaysuing Miracle!",
     rating: 5,
-    avatar: PlaceHolderImages.find(img => img.id === "testimonial-3")?.imageUrl
+    avatarId: "testimonial-3"
   }
 ];
 
@@ -48,31 +47,35 @@ export function Testimonials() {
 
         <Carousel className="w-full max-w-4xl mx-auto mb-16">
           <CarouselContent>
-            {mainReviews.map((review, index) => (
-              <CarouselItem key={index}>
-                <div className="p-1">
-                  <Card className="border-none bg-white p-8 md:p-12 relative overflow-hidden lavender-shadow">
-                    <Quote className="absolute -top-4 -right-4 w-32 h-32 text-primary/5 -rotate-12" />
-                    <CardContent className="flex flex-col items-center text-center p-0 space-y-6">
-                      <div className="flex text-amber-400">
-                        {[...Array(review.rating)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
-                      </div>
-                      <p className="text-lg md:text-2xl font-medium leading-relaxed italic">
-                        "{review.text}"
-                      </p>
-                      <div className="flex flex-col items-center gap-2">
-                        <Avatar className="w-16 h-16 border-4 border-primary/10">
-                          <AvatarImage src={review.avatar} alt={review.name} />
-                          <AvatarFallback>{review.name[0]}</AvatarFallback>
-                        </Avatar>
-                        <span className="font-bold text-lg">{review.name}</span>
-                        <span className="text-xs text-primary font-medium tracking-wide uppercase">Verified Customer</span>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
+            {mainReviews.map((review, index) => {
+              const avatar = (PlaceHolderImages || []).find(img => img?.id === review.avatarId)?.imageUrl;
+              
+              return (
+                <CarouselItem key={index}>
+                  <div className="p-1">
+                    <Card className="border-none bg-white p-8 md:p-12 relative overflow-hidden lavender-shadow">
+                      <Quote className="absolute -top-4 -right-4 w-32 h-32 text-primary/5 -rotate-12" />
+                      <CardContent className="flex flex-col items-center text-center p-0 space-y-6">
+                        <div className="flex text-amber-400">
+                          {[...Array(review.rating)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
+                        </div>
+                        <p className="text-lg md:text-2xl font-medium leading-relaxed italic">
+                          "{review.text}"
+                        </p>
+                        <div className="flex flex-col items-center gap-2">
+                          <Avatar className="w-16 h-16 border-4 border-primary/10">
+                            <AvatarImage src={avatar} alt={review.name} />
+                            <AvatarFallback>{review.name[0]}</AvatarFallback>
+                          </Avatar>
+                          <span className="font-bold text-lg">{review.name}</span>
+                          <span className="text-xs text-primary font-medium tracking-wide uppercase">Verified Customer</span>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              );
+            })}
           </CarouselContent>
           <CarouselPrevious className="hidden md:flex" />
           <CarouselNext className="hidden md:flex" />
