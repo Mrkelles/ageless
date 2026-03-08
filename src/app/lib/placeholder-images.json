@@ -20,6 +20,36 @@
       "imageHint": "applying cream"
     },
     {
+      "id": "benefit-3",
+      "description": "Close up of smooth hydrated skin",
+      "imageUrl": "https://images.unsplash.com/photo-1552046122-03184de85e08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "imageHint": "smooth skin"
+    },
+    {
+      "id": "benefit-4",
+      "description": "Natural ingredients aloe vera",
+      "imageUrl": "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "imageHint": "aloe vera"
+    },
+    {
+      "id": "benefit-5",
+      "description": "Firming effect demonstration",
+      "imageUrl": "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "imageHint": "firm skin"
+    },
+    {
+      "id": "benefit-6",
+      "description": "Satisfied customer using product",
+      "imageUrl": "https://images.unsplash.com/photo-1594465919760-441fe5908ab0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "imageHint": "happy face"
+    },
+    {
+      "id": "benefit-7",
+      "description": "Collagen protein structure",
+      "imageUrl": "https://images.unsplash.com/photo-1628155551323-939e6a25697d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "imageHint": "collagen detail"
+    },
+    {
       "id": "upsell-botox",
       "description": "Serum bottle next to cream",
       "imageUrl": "https://images.unsplash.com/photo-1643379850623-7eb6442cd262?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxza2luY2FyZSUyMHNlcnVtfGVufDB8fHx8MTc3MjI2NDUzNHww&ixlib=rb-4.1.0&q=80&w=1080",
