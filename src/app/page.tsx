@@ -8,6 +8,7 @@ import { ProductPackages } from "@/components/landing/ProductPackages";
 import { OrderForm } from "@/components/landing/OrderForm";
 import { FAQ } from "@/components/landing/FAQ";
 import { Footer } from "@/components/landing/Footer";
+import { ImageShowcase } from "@/components/landing/ImageShowcase";
 
 export default function Home() {
   return (
@@ -26,6 +27,9 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      {/* New Image Showcase sections */}
+      <ImageShowcase />
 
       <Benefits />
       <Testimonials />

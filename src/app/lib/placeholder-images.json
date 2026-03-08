@@ -32,6 +32,30 @@
       "imageHint": "beauty product"
     },
     {
+      "id": "showcase-large",
+      "description": "Before and after transformation",
+      "imageUrl": "https://images.unsplash.com/photo-1598440441973-100ca093096a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "imageHint": "skincare results"
+    },
+    {
+      "id": "showcase-grid-1",
+      "description": "Skin texture improvement",
+      "imageUrl": "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "imageHint": "skin texture"
+    },
+    {
+      "id": "showcase-grid-2",
+      "description": "Hydration results",
+      "imageUrl": "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "imageHint": "hydrated skin"
+    },
+    {
+      "id": "showcase-grid-3",
+      "description": "Firming results",
+      "imageUrl": "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "imageHint": "firm skin"
+    },
+    {
       "id": "hero-cream",
       "description": "Premium collagen neck cream jar with soft lighting",
       "imageUrl": "https://images.unsplash.com/photo-1608068811588-3a67006b7489?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxza2luY2FyZSUyMGNyZWFtfGVufDB8fHx8MTc3MjI5MTY5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
