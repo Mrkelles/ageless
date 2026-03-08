@@ -1,46 +1,77 @@
+
 {
   "placeholderImages": [
     {
       "id": "hero-cream",
       "description": "Premium collagen neck cream jar with soft lighting",
-      "imageUrl": "https://picsum.photos/seed/skincare1/800/1000",
+      "imageUrl": "https://images.unsplash.com/photo-1608068811588-3a67006b7489?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxza2luY2FyZSUyMGNyZWFtfGVufDB8fHx8MTc3MjI5MTY5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "skincare cream"
     },
     {
       "id": "benefit-1",
       "description": "Woman with youthful glowing skin",
-      "imageUrl": "https://picsum.photos/seed/skin2/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3b21hbiUyMGJlYXV0eXxlbnwwfHx8fDE3NzIzMTM0OTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "woman beauty"
     },
     {
       "id": "benefit-2",
       "description": "Applying cream to neck",
-      "imageUrl": "https://picsum.photos/seed/skin3/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1662020252056-929f908cd77d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhcHBseWluZyUyMGNyZWFtfGVufDB8fHx8MTc3MjMxMzQ5OHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "applying cream"
     },
     {
       "id": "upsell-botox",
       "description": "Serum bottle next to cream",
-      "imageUrl": "https://picsum.photos/seed/serum/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1643379850623-7eb6442cd262?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxza2luY2FyZSUyMHNlcnVtfGVufDB8fHx8MTc3MjI2NDUzNHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "skincare serum"
     },
     {
       "id": "testimonial-1",
       "description": "Happy woman portrait",
-      "imageUrl": "https://picsum.photos/seed/woman1/200/200",
+      "imageUrl": "https://images.unsplash.com/photo-1610655507808-a59293f4e332?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MjI5NjAwNnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "woman portrait"
     },
     {
       "id": "testimonial-2",
       "description": "Happy woman portrait",
-      "imageUrl": "https://picsum.photos/seed/woman2/200/200",
+      "imageUrl": "https://images.unsplash.com/photo-1609505848912-b7c3b8b4beda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MjI5NjAwNnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "woman portrait"
     },
     {
       "id": "testimonial-3",
       "description": "Happy woman portrait",
-      "imageUrl": "https://picsum.photos/seed/woman3/200/200",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d29tYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzIyOTYwMDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "woman portrait"
+    },
+    {
+      "id": "video-1",
+      "description": "Video thumbnail showing cream application",
+      "imageUrl": "https://picsum.photos/seed/vid1/800/600",
+      "imageHint": "skincare routine"
+    },
+    {
+      "id": "video-2",
+      "description": "Video thumbnail showing results",
+      "imageUrl": "https://picsum.photos/seed/vid2/800/600",
+      "imageHint": "beauty results"
+    },
+    {
+      "id": "video-3",
+      "description": "Video thumbnail unboxing",
+      "imageUrl": "https://picsum.photos/seed/vid3/800/600",
+      "imageHint": "product unboxing"
+    },
+    {
+      "id": "video-4",
+      "description": "Video thumbnail dermatologist",
+      "imageUrl": "https://picsum.photos/seed/vid4/800/600",
+      "imageHint": "doctor skincare"
+    },
+    {
+      "id": "video-5",
+      "description": "Video thumbnail morning routine",
+      "imageUrl": "https://picsum.photos/seed/vid5/800/600",
+      "imageHint": "morning beauty"
     }
   ]
 }

@@ -3,6 +3,7 @@ import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
 import { Benefits } from "@/components/landing/Benefits";
 import { Testimonials } from "@/components/landing/Testimonials";
+import { VideoCarousel } from "@/components/landing/VideoCarousel";
 import { ProductPackages } from "@/components/landing/ProductPackages";
 import { OrderForm } from "@/components/landing/OrderForm";
 import { FAQ } from "@/components/landing/FAQ";
@@ -28,6 +29,7 @@ export default function Home() {
 
       <Benefits />
       <Testimonials />
+      <VideoCarousel />
       <ProductPackages />
       <FAQ />
       <OrderForm />
