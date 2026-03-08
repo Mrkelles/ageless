@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -160,10 +161,10 @@ export function OrderForm() {
 
             <Card className="p-8 border-none bg-foreground text-background rounded-3xl space-y-4 text-center">
               <p className="text-sm font-medium text-primary uppercase tracking-widest">Need Help?</p>
-              <div className="text-2xl font-bold">09161414780</div>
+              <div className="text-2xl font-bold">08137152040</div>
               <p className="text-xs text-background/60">Give us a call. Let's help you today!</p>
               <Button variant="outline" className="w-full rounded-full border-primary text-primary hover:bg-primary hover:text-white" asChild>
-                <a href="https://wa.me/2349161414780">Order on WhatsApp</a>
+                <a href="https://wa.me/2348137152040">Order on WhatsApp</a>
               </Button>
             </Card>
           </div>

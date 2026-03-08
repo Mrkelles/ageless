@@ -1,16 +1,19 @@
 
 import Link from "next/link";
-import { Sparkles, Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
+import { Sparkles, Twitter, Linkedin, Instagram } from "lucide-react";
 
 export function Footer() {
   return (
     <footer className="bg-white border-t border-primary/10 py-12 px-4">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-        <div className="flex items-center gap-2 font-headline font-bold text-xl">
-          <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
-            <Sparkles className="w-5 h-5" />
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-2 font-headline font-bold text-xl">
+            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+              <Sparkles className="w-5 h-5" />
+            </div>
+            <span>AgelessBeauty</span>
           </div>
-          <span>AgelessBeauty</span>
+          <p className="text-xs text-muted-foreground ml-12">Support: 08137152040</p>
         </div>
 
         <div className="flex gap-8 text-sm text-muted-foreground">
