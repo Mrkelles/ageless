@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Star, Truck, ShieldCheck } from "lucide-react";
@@ -10,9 +11,15 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 
 export function Hero() {
+  const [mainApi, setMainApi] = React.useState<CarouselApi>();
+  const [thumbApi, setThumbApi] = React.useState<CarouselApi>();
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+
   const carouselImageIds = [
     "hero-carousel-1",
     "hero-carousel-2",
@@ -21,10 +28,30 @@ export function Hero() {
     "hero-carousel-5",
   ];
 
-  // Map requested IDs to image data from the placeholder registry
   const heroImages = carouselImageIds.map(id => {
     return (PlaceHolderImages || []).find(img => img.id === id);
   }).filter(Boolean);
+
+  const onSelect = React.useCallback(() => {
+    if (!mainApi || !thumbApi) return;
+    setSelectedIndex(mainApi.selectedScrollSnap());
+    thumbApi.scrollTo(mainApi.selectedScrollSnap());
+  }, [mainApi, thumbApi]);
+
+  React.useEffect(() => {
+    if (!mainApi) return;
+    onSelect();
+    mainApi.on("select", onSelect);
+    mainApi.on("reInit", onSelect);
+  }, [mainApi, onSelect]);
+
+  const onThumbClick = React.useCallback(
+    (index: number) => {
+      if (!mainApi) return;
+      mainApi.scrollTo(index);
+    },
+    [mainApi]
+  );
 
   return (
     <section className="pt-32 pb-16 px-4 md:px-6 max-w-6xl mx-auto">
@@ -68,10 +95,9 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative animate-float">
-          <div className="absolute -inset-4 bg-primary/10 rounded-full blur-3xl opacity-30"></div>
-          <div className="relative rounded-[2.5rem] overflow-hidden border-8 border-foreground shadow-2xl bg-white">
-            <Carousel className="w-full" opts={{ loop: true }}>
+        <div className="relative space-y-6">
+          <div className="relative rounded-[2.5rem] overflow-hidden border-8 border-white shadow-2xl bg-white lg:max-w-md mx-auto">
+            <Carousel setApi={setMainApi} className="w-full" opts={{ loop: true }}>
               <CarouselContent>
                 {heroImages.length > 0 ? heroImages.map((img, i) => (
                   <CarouselItem key={i}>
@@ -94,10 +120,47 @@ export function Hero() {
                   </CarouselItem>
                 )}
               </CarouselContent>
-              <div className="absolute inset-y-0 left-4 right-4 flex items-center justify-between pointer-events-none">
-                <CarouselPrevious className="relative left-0 pointer-events-auto h-10 w-10 bg-white/20 hover:bg-white/40 backdrop-blur-md border-none text-foreground translate-x-0 translate-y-0" />
-                <CarouselNext className="relative right-0 pointer-events-auto h-10 w-10 bg-white/20 hover:bg-white/40 backdrop-blur-md border-none text-foreground translate-x-0 translate-y-0" />
-              </div>
+              {/* Visible Arrows inside the carousel frame */}
+              <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-white/80 hover:bg-white text-primary border-none shadow-md" />
+              <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-white/80 hover:bg-white text-primary border-none shadow-md" />
+            </Carousel>
+          </div>
+
+          {/* Mini images (thumbnails) below */}
+          <div className="max-w-[280px] md:max-w-sm mx-auto">
+            <Carousel
+              setApi={setThumbApi}
+              opts={{
+                align: "start",
+                containScroll: "trimSnaps",
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 flex justify-center">
+                {heroImages.map((img, index) => (
+                  <CarouselItem 
+                    key={index} 
+                    className="pl-2 basis-1/5 cursor-pointer"
+                    onClick={() => onThumbClick(index)}
+                  >
+                    <div 
+                      className={cn(
+                        "relative aspect-square rounded-lg overflow-hidden border-2 transition-all",
+                        selectedIndex === index 
+                          ? "border-primary scale-110 shadow-sm" 
+                          : "border-transparent opacity-50 hover:opacity-100"
+                      )}
+                    >
+                      <Image
+                        src={img!.imageUrl}
+                        alt={img!.description}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
             </Carousel>
           </div>
         </div>
