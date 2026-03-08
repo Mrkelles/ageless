@@ -1,14 +1,30 @@
+"use client";
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Star, Truck, ShieldCheck } from "lucide-react";
-import { getPlaceholderImage } from "@/lib/placeholder-images";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export function Hero() {
-  const heroImg = getPlaceholderImage("hero-cream", {
-    imageUrl: "https://picsum.photos/seed/skincare1/800/1000",
-    description: "Premium collagen neck cream",
-    imageHint: "skincare cream"
-  });
+  const carouselImageIds = [
+    "hero-carousel-1",
+    "hero-carousel-2",
+    "hero-carousel-3",
+    "hero-carousel-4",
+    "hero-carousel-5",
+  ];
+
+  // Map requested IDs to image data from the placeholder registry
+  const heroImages = carouselImageIds.map(id => {
+    return (PlaceHolderImages || []).find(img => img.id === id);
+  }).filter(Boolean);
 
   return (
     <section className="pt-32 pb-16 px-4 md:px-6 max-w-6xl mx-auto">
@@ -54,15 +70,35 @@ export function Hero() {
 
         <div className="relative animate-float">
           <div className="absolute -inset-4 bg-primary/10 rounded-full blur-3xl opacity-30"></div>
-          <div className="relative rounded-[2.5rem] overflow-hidden border-8 border-foreground shadow-2xl">
-            <Image 
-              src={heroImg.imageUrl} 
-              alt={heroImg.description} 
-              width={800} 
-              height={1000} 
-              className="object-cover"
-              data-ai-hint={heroImg.imageHint}
-            />
+          <div className="relative rounded-[2.5rem] overflow-hidden border-8 border-foreground shadow-2xl bg-white">
+            <Carousel className="w-full" opts={{ loop: true }}>
+              <CarouselContent>
+                {heroImages.length > 0 ? heroImages.map((img, i) => (
+                  <CarouselItem key={i}>
+                    <div className="relative aspect-[4/5] w-full">
+                      <Image 
+                        src={img!.imageUrl} 
+                        alt={img!.description} 
+                        fill
+                        className="object-cover"
+                        priority={i === 0}
+                        data-ai-hint={img!.imageHint}
+                      />
+                    </div>
+                  </CarouselItem>
+                )) : (
+                  <CarouselItem>
+                    <div className="relative aspect-[4/5] bg-muted flex items-center justify-center">
+                      <p className="text-muted-foreground text-sm">Product Image Placeholder</p>
+                    </div>
+                  </CarouselItem>
+                )}
+              </CarouselContent>
+              <div className="absolute inset-y-0 left-4 right-4 flex items-center justify-between pointer-events-none">
+                <CarouselPrevious className="relative left-0 pointer-events-auto h-10 w-10 bg-white/20 hover:bg-white/40 backdrop-blur-md border-none text-foreground translate-x-0 translate-y-0" />
+                <CarouselNext className="relative right-0 pointer-events-auto h-10 w-10 bg-white/20 hover:bg-white/40 backdrop-blur-md border-none text-foreground translate-x-0 translate-y-0" />
+              </div>
+            </Carousel>
           </div>
         </div>
       </div>

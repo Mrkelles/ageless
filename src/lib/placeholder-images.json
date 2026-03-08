@@ -1,6 +1,36 @@
 {
   "placeholderImages": [
     {
+      "id": "hero-carousel-1",
+      "description": "Product showcase 1",
+      "imageUrl": "https://i.ibb.co/5hytwkKV/IMG-4072.webp",
+      "imageHint": "neck cream"
+    },
+    {
+      "id": "hero-carousel-2",
+      "description": "Product showcase 2",
+      "imageUrl": "https://i.ibb.co/ccNYbjFr/IMG-4390.webp",
+      "imageHint": "skincare bottle"
+    },
+    {
+      "id": "hero-carousel-3",
+      "description": "Product showcase 3",
+      "imageUrl": "https://i.ibb.co/WWkJZfpv/IMG-5024-scaled.webp",
+      "imageHint": "skincare results"
+    },
+    {
+      "id": "hero-carousel-4",
+      "description": "Product showcase 4",
+      "imageUrl": "https://i.ibb.co/ynxg4fSk/IMG-5059-scaled.webp",
+      "imageHint": "skincare application"
+    },
+    {
+      "id": "hero-carousel-5",
+      "description": "Product showcase 5",
+      "imageUrl": "https://i.ibb.co/gMYKNcHD/IMG-4069.webp",
+      "imageHint": "beauty product"
+    },
+    {
       "id": "hero-cream",
       "description": "Premium collagen neck cream jar with soft lighting",
       "imageUrl": "https://images.unsplash.com/photo-1608068811588-3a67006b7489?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxza2luY2FyZSUyMGNyZWFtfGVufDB8fHx8MTc3MjI5MTY5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
@@ -17,12 +47,6 @@
       "description": "Applying cream to neck",
       "imageUrl": "https://images.unsplash.com/photo-1662020252056-929f908cd77d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhcHBseWluZyUyMGNyZWFtfGVufDB8fHx8MTc3MjMxMzQ5OHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "applying cream"
-    },
-    {
-      "id": "upsell-botox",
-      "description": "Serum bottle next to cream",
-      "imageUrl": "https://images.unsplash.com/photo-1643379850623-7eb6442cd262?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxza2luY2FyZSUyMHNlcnVtfGVufDB8fHx8MTc3MjI2NDUzNHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "skincare serum"
     },
     {
       "id": "testimonial-1",
