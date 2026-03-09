@@ -2,7 +2,7 @@
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
 import { Benefits } from "@/components/landing/Benefits";
-import { Testimonials } from "@/components/landing/Testimonials";
+import { Reviews } from "@/components/landing/Reviews";
 import { VideoCarousel } from "@/components/landing/VideoCarousel";
 import { ProductPackages } from "@/components/landing/ProductPackages";
 import { OrderForm } from "@/components/landing/OrderForm";
@@ -32,7 +32,11 @@ export default function Home() {
       <ImageShowcase />
 
       <Benefits />
-      <Testimonials />
+      
+      {/* Testimonials commented out in favor of new Reviews component */}
+      {/* <Testimonials /> */}
+      <Reviews />
+
       <VideoCarousel />
       <ProductPackages />
       <FAQ />
