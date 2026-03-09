@@ -63,45 +63,45 @@
     },
     {
       "id": "benefit-1",
-      "description": "Woman with youthful glowing skin",
-      "imageUrl": "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3b21hbiUyMGJlYXV0eXxlbnwwfHx8fDE3NzIzMTM0OTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "woman beauty"
+      "description": "Youthful Skin Renewal",
+      "imageUrl": "https://i.ibb.co/4n2cPdJD/istockphoto-1415815154-612x612-1.webp",
+      "imageHint": "youthful skin"
     },
     {
       "id": "benefit-2",
-      "description": "Applying cream to neck",
-      "imageUrl": "https://images.unsplash.com/photo-1662020252056-929f908cd77d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhcHBseWluZyUyMGNyZWFtfGVufDB8fHx8MTc3MjMxMzQ5OHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "applying cream"
+      "description": "Specialized Neck Care",
+      "imageUrl": "https://i.ibb.co/8nvrsZ3n/istockphoto-1497400063-612x612-1.webp",
+      "imageHint": "neck care"
     },
     {
       "id": "benefit-3",
-      "description": "Close up of smooth hydrated skin",
-      "imageUrl": "https://images.unsplash.com/photo-1552046122-03184de85e08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      "imageHint": "smooth skin"
+      "description": "Suitable for All Skin",
+      "imageUrl": "https://i.ibb.co/yFmXN9sc/Getty-Images-1143302501.webp",
+      "imageHint": "all skin types"
     },
     {
       "id": "benefit-4",
-      "description": "Natural ingredients aloe vera",
-      "imageUrl": "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      "imageHint": "aloe vera"
+      "description": "Anti-Aging Quality",
+      "imageUrl": "https://i.ibb.co/r2DgBvBX/All-About-Wrinkles-1-768x430.webp",
+      "imageHint": "anti aging"
     },
     {
       "id": "benefit-5",
-      "description": "Firming effect demonstration",
-      "imageUrl": "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      "imageHint": "firm skin"
+      "description": "Collagen Boost",
+      "imageUrl": "https://i.ibb.co/M574Zhp4/article-thumbnail-how-to-plump-skin-768x472.webp",
+      "imageHint": "collagen boost"
     },
     {
       "id": "benefit-6",
-      "description": "Satisfied customer using product",
-      "imageUrl": "https://images.unsplash.com/photo-1594465919760-441fe5908ab0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      "imageHint": "happy face"
+      "description": "Natural & Skin-Loving",
+      "imageUrl": "https://i.ibb.co/jPZw3G5f/skincare-natural-ingredients-in-bowls-1-768x461.webp",
+      "imageHint": "natural ingredients"
     },
     {
       "id": "benefit-7",
-      "description": "Collagen protein structure",
-      "imageUrl": "https://images.unsplash.com/photo-1628155551323-939e6a25697d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      "imageHint": "collagen detail"
+      "description": "100% Risk-Free",
+      "imageUrl": "https://i.ibb.co/Fq7VbZY5/orange-money-back-guarantee-4722738-768x620.webp",
+      "imageHint": "money back"
     },
     {
       "id": "upsell-botox",
