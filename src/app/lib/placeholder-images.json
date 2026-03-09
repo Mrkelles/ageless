@@ -132,6 +132,42 @@
       "description": "Clara's Age-Defying Result",
       "imageUrl": "https://i.ibb.co/Lh8hGV1m/test-4-768x628.webp",
       "imageHint": "anti-aging results"
+    },
+    {
+      "id": "more-rev-1",
+      "description": "Annette's story",
+      "imageUrl": "https://i.ibb.co/PGZ2ccFf/testimony-1-768x754.webp",
+      "imageHint": "happy skin"
+    },
+    {
+      "id": "more-rev-2",
+      "description": "Funmilayo's story",
+      "imageUrl": "https://i.ibb.co/wFJy2VMx/testimony-2-768x656.webp",
+      "imageHint": "smooth skin"
+    },
+    {
+      "id": "more-rev-3",
+      "description": "Anthonia's story",
+      "imageUrl": "https://i.ibb.co/35BN7ht3/testimony-3-768x695.webp",
+      "imageHint": "firm skin"
+    },
+    {
+      "id": "more-rev-4",
+      "description": "Naomi's story",
+      "imageUrl": "https://i.ibb.co/Kp8rmW04/testimony-4-768x1024.webp",
+      "imageHint": "lifting effect"
+    },
+    {
+      "id": "more-rev-5",
+      "description": "Emelia's story",
+      "imageUrl": "https://i.ibb.co/zhS2TpRR/testimony-5-768x1024.webp",
+      "imageHint": "skin care"
+    },
+    {
+      "id": "more-rev-6",
+      "description": "Samantha's story",
+      "imageUrl": "https://i.ibb.co/Q3bKbrC7/testimony-6-768x760.webp",
+      "imageHint": "youthful look"
     }
   ]
 }
