@@ -1,4 +1,3 @@
-
 import data from '@/app/lib/placeholder-images.json';
 
 export type ImagePlaceholder = {
@@ -9,17 +8,22 @@ export type ImagePlaceholder = {
 };
 
 // Defensive export: ensure it's always an array at runtime
-const rawPlaceholderImages = (data && typeof data === 'object' && 'placeholderImages' in data && Array.isArray(data.placeholderImages)) 
-  ? data.placeholderImages 
-  : [];
+// Handles potential differences in JSON import behavior (object vs default wrapper)
+const getRawData = () => {
+  if (!data) return [];
+  if (Array.isArray(data.placeholderImages)) return data.placeholderImages;
+  // @ts-ignore - handle potential default wrapper
+  if (data.default?.placeholderImages) return data.default.placeholderImages;
+  return [];
+};
 
-export const PlaceHolderImages: ImagePlaceholder[] = rawPlaceholderImages;
+export const PlaceHolderImages: ImagePlaceholder[] = getRawData();
 
 /**
  * Safely retrieves a placeholder image by ID with a mandatory fallback.
+ * Prevents "Cannot read properties of undefined" errors by always returning a valid object.
  */
 export function getPlaceholderImage(id: string, fallback: { imageUrl: string; description: string; imageHint: string }): ImagePlaceholder {
-  // Defensive check for PlaceHolderImages
   const list = Array.isArray(PlaceHolderImages) ? PlaceHolderImages : [];
   const found = list.find(img => img && img.id === id);
   

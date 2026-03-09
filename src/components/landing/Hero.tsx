@@ -28,9 +28,10 @@ export function Hero() {
     "hero-carousel-5",
   ];
 
+  // Defensive lookup for hero images
   const heroImages = carouselImageIds.map(id => {
-    return (PlaceHolderImages || []).find(img => img.id === id);
-  }).filter(Boolean);
+    return (PlaceHolderImages || []).find(img => img && img.id === id);
+  }).filter((img): img is NonNullable<typeof img> => !!img && !!img.imageUrl);
 
   const onSelect = React.useCallback(() => {
     if (!mainApi || !thumbApi) return;
@@ -103,12 +104,12 @@ export function Hero() {
                   <CarouselItem key={i}>
                     <div className="relative aspect-[4/5] w-full">
                       <Image 
-                        src={img!.imageUrl} 
-                        alt={img!.description} 
+                        src={img.imageUrl} 
+                        alt={img.description} 
                         fill
                         className="object-cover"
                         priority={i === 0}
-                        data-ai-hint={img!.imageHint}
+                        data-ai-hint={img.imageHint}
                       />
                     </div>
                   </CarouselItem>
@@ -120,13 +121,11 @@ export function Hero() {
                   </CarouselItem>
                 )}
               </CarouselContent>
-              {/* Visible Arrows inside the carousel frame */}
               <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-white/80 hover:bg-white text-primary border-none shadow-md" />
               <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-white/80 hover:bg-white text-primary border-none shadow-md" />
             </Carousel>
           </div>
 
-          {/* Mini images (thumbnails) below */}
           <div className="max-w-[280px] md:max-w-sm mx-auto">
             <Carousel
               setApi={setThumbApi}
@@ -152,8 +151,8 @@ export function Hero() {
                       )}
                     >
                       <Image
-                        src={img!.imageUrl}
-                        alt={img!.description}
+                        src={img.imageUrl}
+                        alt={img.description}
                         fill
                         className="object-cover"
                       />
