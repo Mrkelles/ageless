@@ -3,7 +3,7 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { Play, ChevronLeft, ChevronRight } from "lucide-react";
+import { Play } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -12,15 +12,12 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { getPlaceholderImage } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 
 const videos = [
-  { id: "video-1", title: "Visible Results in 7 Days", duration: "1:45" },
-  { id: "video-2", title: "How to Apply for Best Results", duration: "2:10" },
-  { id: "video-3", title: "Real Customer Unboxing", duration: "0:58" },
-  { id: "video-4", title: "Expert Dermatologist Review", duration: "3:20" },
-  { id: "video-5", title: "My Morning Skincare Routine", duration: "1:15" },
+  { id: "OamZCh7VYSc", title: "Visible Results", duration: "1:45" },
+  { id: "rTLaukePnUU", title: "Customer Stories", duration: "2:10" },
+  { id: "IH9WTehpogc", title: "Usage Guide", duration: "0:58" },
 ];
 
 export function VideoCarousel() {
@@ -30,8 +27,9 @@ export function VideoCarousel() {
 
   const onSelect = React.useCallback(() => {
     if (!mainApi || !thumbApi) return;
-    setSelectedIndex(mainApi.selectedScrollSnap());
-    thumbApi.scrollTo(mainApi.selectedScrollSnap());
+    const index = mainApi.selectedScrollSnap();
+    setSelectedIndex(index);
+    thumbApi.scrollTo(index);
   }, [mainApi, thumbApi]);
 
   React.useEffect(() => {
@@ -43,10 +41,10 @@ export function VideoCarousel() {
 
   const onThumbClick = React.useCallback(
     (index: number) => {
-      if (!mainApi || !thumbApi) return;
+      if (!mainApi) return;
       mainApi.scrollTo(index);
     },
-    [mainApi, thumbApi]
+    [mainApi]
   );
 
   return (
@@ -60,106 +58,97 @@ export function VideoCarousel() {
         </div>
 
         {/* Main Big Video Carousel */}
-        <div className="relative group">
-          <Carousel setApi={setMainApi} className="w-full">
+        <div className="relative group max-w-4xl mx-auto">
+          <Carousel setApi={setMainApi} className="w-full" opts={{ loop: true }}>
             <CarouselContent>
-              {videos.map((video, index) => {
-                const img = getPlaceholderImage(video.id, {
-                  imageUrl: "https://picsum.photos/seed/vid/800/600",
-                  description: video.title,
-                  imageHint: "skincare video",
-                });
-                return (
-                  <CarouselItem key={index}>
-                    <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border-4 border-white shadow-2xl lavender-shadow">
-                      <Image
-                        src={img.imageUrl}
-                        alt={img.description}
-                        fill
-                        className="object-cover"
-                        data-ai-hint={img.imageHint}
-                      />
-                      <div className="absolute inset-0 bg-black/20 flex items-center justify-center group/play">
-                        <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center shadow-2xl group-hover/play:scale-110 transition-transform cursor-pointer">
-                          <Play className="w-8 h-8 text-primary fill-current ml-1" />
-                        </div>
-                      </div>
-                      <div className="absolute bottom-8 left-8 text-white z-10">
-                        <h3 className="text-2xl font-bold font-headline">{video.title}</h3>
-                        <p className="text-sm opacity-80">{video.duration} • Tutorial</p>
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    </div>
-                  </CarouselItem>
-                );
-              })}
+              {videos.map((video, index) => (
+                <CarouselItem key={index}>
+                  <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border-4 border-white shadow-2xl lavender-shadow bg-black">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.id}?rel=0&modestbranding=1`}
+                      title={video.title}
+                      className="absolute inset-0 w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
             </CarouselContent>
             
-            {/* Custom styled arrows for the main video frame */}
-            <div className="absolute inset-y-0 left-4 right-4 flex items-center justify-between pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
-              <CarouselPrevious className="relative left-0 pointer-events-auto h-12 w-12 bg-white/20 hover:bg-white/40 backdrop-blur-md border-none text-white translate-x-0 translate-y-0" />
-              <CarouselNext className="relative right-0 pointer-events-auto h-12 w-12 bg-white/20 hover:bg-white/40 backdrop-blur-md border-none text-white translate-x-0 translate-y-0" />
+            <div className="absolute inset-y-0 -left-4 -right-4 flex items-center justify-between pointer-events-none">
+              <CarouselPrevious className="relative left-0 pointer-events-auto h-12 w-12 bg-white shadow-xl hover:bg-primary hover:text-white border-none translate-x-0 translate-y-0" />
+              <CarouselNext className="relative right-0 pointer-events-auto h-12 w-12 bg-white shadow-xl hover:bg-primary hover:text-white border-none translate-x-0 translate-y-0" />
             </div>
           </Carousel>
         </div>
 
         {/* Thumbnail Carousel beneath */}
-        <div className="relative max-w-2xl mx-auto px-10">
+        <div className="relative max-w-2xl mx-auto">
           <Carousel
             setApi={setThumbApi}
             opts={{
               align: "center",
               containScroll: "trimSnaps",
+              loop: true
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-2 md:-ml-4">
+            <CarouselContent className="-ml-4">
               {videos.map((video, index) => {
-                const img = getPlaceholderImage(video.id, {
-                  imageUrl: "https://picsum.photos/seed/vid/200/150",
-                  description: video.title,
-                  imageHint: "skincare thumb",
-                });
                 const isActive = selectedIndex === index;
+                const thumbUrl = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
                 
                 return (
                   <CarouselItem 
                     key={index} 
-                    className="pl-2 md:pl-4 basis-1/3 cursor-pointer"
+                    className="pl-4 basis-1/3 cursor-pointer"
                     onClick={() => onThumbClick(index)}
                   >
                     <div 
                       className={cn(
-                        "relative aspect-video rounded-2xl overflow-hidden border-2 transition-all duration-300",
+                        "relative aspect-video rounded-2xl overflow-hidden border-2 transition-all duration-500",
                         isActive 
                           ? "border-primary scale-110 shadow-lg z-10" 
-                          : "border-transparent opacity-60 scale-95"
+                          : "border-transparent opacity-40 grayscale-[50%]"
                       )}
                     >
                       <Image
-                        src={img.imageUrl}
-                        alt={img.description}
+                        src={thumbUrl}
+                        alt={video.title}
                         fill
                         className="object-cover"
+                        unoptimized
                       />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <Play className={cn("w-4 h-4 fill-current", isActive ? "text-primary" : "text-white")} />
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/10">
+                        <div className={cn(
+                          "w-8 h-8 rounded-full flex items-center justify-center transition-colors",
+                          isActive ? "bg-primary text-white" : "bg-white/80 text-primary"
+                        )}>
+                          <Play className="w-3 h-3 fill-current ml-0.5" />
+                        </div>
                       </div>
                     </div>
+                    <p className={cn(
+                      "text-[10px] font-bold text-center mt-3 uppercase tracking-tighter transition-opacity",
+                      isActive ? "opacity-100 text-primary" : "opacity-0"
+                    )}>
+                      {video.title}
+                    </p>
                   </CarouselItem>
                 );
               })}
             </CarouselContent>
             
-            <div className="flex items-center justify-center gap-4 mt-8">
+            <div className="flex items-center justify-center gap-4 mt-6">
               <CarouselPrevious className="static translate-x-0 translate-y-0 h-8 w-8 rounded-full border-primary/20 hover:bg-primary/10" />
-              <div className="flex gap-2">
+              <div className="flex gap-1.5">
                 {videos.map((_, i) => (
                   <div 
                     key={i} 
                     className={cn(
-                      "w-1.5 h-1.5 rounded-full transition-all",
-                      selectedIndex === i ? "bg-primary w-4" : "bg-primary/20"
+                      "h-1.5 rounded-full transition-all duration-300",
+                      selectedIndex === i ? "bg-primary w-6" : "bg-primary/20 w-1.5"
                     )} 
                   />
                 ))}
