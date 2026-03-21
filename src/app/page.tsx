@@ -17,7 +17,7 @@ export default function Home() {
       <Header />
       <Hero />
       
-      {/* Introduction text block as requested */}
+      {/* Introduction text block */}
       <section className="py-16 px-4 bg-white/30 text-center">
         <div className="max-w-3xl mx-auto space-y-6">
           <h2 className="text-3xl font-headline font-bold leading-tight">
@@ -29,13 +29,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* New Image Showcase sections */}
+      {/* Image Showcase sections */}
       <ImageShowcase />
+
+      {/* Video gallery instance above Benefits */}
+      <VideoCarousel />
 
       <Benefits />
       
       <Reviews />
 
+      {/* Second video gallery instance */}
       <VideoCarousel />
       
       <MoreReviews />
