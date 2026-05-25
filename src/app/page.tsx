@@ -6,7 +6,6 @@ import { Reviews } from "@/components/landing/Reviews";
 import { MoreReviews } from "@/components/landing/MoreReviews";
 import { VideoCarousel } from "@/components/landing/VideoCarousel";
 import { ProductPackages } from "@/components/landing/ProductPackages";
-import { OrderForm } from "@/components/landing/OrderForm";
 import { FAQ } from "@/components/landing/FAQ";
 import { Footer } from "@/components/landing/Footer";
 import { ImageShowcase } from "@/components/landing/ImageShowcase";
@@ -46,7 +45,6 @@ export default function Home() {
 
       <ProductPackages />
       <FAQ />
-      <OrderForm />
       <Footer />
     </main>
   );

@@ -10,9 +10,10 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { ShoppingCart, Package, Info, ShieldCheck } from "lucide-react";
+import { Package, Info, ShieldCheck, Phone } from "lucide-react";
 import Image from "next/image";
 import { getPlaceholderImage } from "@/lib/placeholder-images";
+import { submitOrder } from "@/app/actions/order";
 
 export function OrderForm() {
   const { toast } = useToast();
@@ -24,20 +25,21 @@ export function OrderForm() {
     imageHint: "skincare serum"
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleAction = async (formData: FormData) => {
     setIsSubmitting(true);
-    setTimeout(() => {
+    const result = await submitOrder(formData);
+    if (result?.error) {
       setIsSubmitting(false);
       toast({
-        title: "Order Placed Successfully!",
-        description: "We will contact you shortly to confirm your delivery details.",
+        variant: "destructive",
+        title: "Submission Error",
+        description: result.error,
       });
-    }, 2000);
+    }
   };
 
   return (
-    <section id="order" className="py-24 px-4 bg-primary/5">
+    <section id="order" className="px-4">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12 space-y-4">
           <h2 className="text-3xl md:text-5xl font-headline font-bold">
@@ -49,31 +51,31 @@ export function OrderForm() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <Card className="p-8 border-none lavender-shadow bg-white rounded-[2rem]">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form action={handleAction} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="name">Full Name</Label>
-                    <Input id="name" placeholder="Enter Your Name" required className="rounded-xl h-12" />
+                    <Input name="name" id="name" placeholder="Enter Your Name" required className="rounded-xl h-12" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number</Label>
-                    <Input id="phone" type="tel" placeholder="Enter Your Phone Number" required className="rounded-xl h-12" />
+                    <Input name="phone" id="phone" type="tel" placeholder="Enter Your Phone Number" required className="rounded-xl h-12" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="whatsapp">Alternative / WhatsApp Number</Label>
-                  <Input id="whatsapp" placeholder="Enter Your WhatsApp Number" className="rounded-xl h-12" />
+                  <Input name="whatsapp" id="whatsapp" placeholder="Enter Your WhatsApp Number" className="rounded-xl h-12" />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="address">Delivery Address (City & State)</Label>
-                  <Textarea id="address" placeholder="Enter Your Full Address, City and State" required className="rounded-xl min-h-[100px]" />
+                  <Textarea name="address" id="address" placeholder="Enter Your Full Address, City and State" required className="rounded-xl min-h-[100px]" />
                 </div>
 
                 <div className="space-y-4">
                   <Label className="text-lg font-bold">Select Package</Label>
-                  <RadioGroup defaultValue="pkg1" className="space-y-3">
+                  <RadioGroup name="package" defaultValue="pkg1" className="space-y-3">
                     <div className="flex items-center space-x-3 p-4 border rounded-2xl hover:bg-primary/5 cursor-pointer transition-colors border-primary/20 bg-primary/5">
                       <RadioGroupItem value="pkg1" id="pkg1" />
                       <Label htmlFor="pkg1" className="flex-1 cursor-pointer">
@@ -113,7 +115,7 @@ export function OrderForm() {
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Checkbox id="upsell" />
+                    <Checkbox name="upsell" id="upsell" />
                     <Label htmlFor="upsell" className="text-sm font-medium cursor-pointer">Yes, add it for just ₦12,000 (Today only!)</Label>
                   </div>
                 </div>

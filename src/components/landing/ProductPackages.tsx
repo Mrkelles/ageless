@@ -2,6 +2,7 @@
 import { Check, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 const packages = [
   {
@@ -98,7 +99,7 @@ export function ProductPackages() {
                 }`}
                 asChild
               >
-                <a href="#order">I Want This Package</a>
+                <Link href="/order">I Want This Package</Link>
               </Button>
             </div>
           ))}

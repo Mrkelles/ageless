@@ -17,13 +17,13 @@ export function Header() {
         </Link>
         
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-secondary-foreground/70">
-          <Link href="#benefits" className="hover:text-primary transition-colors">Benefits</Link>
-          <Link href="#reviews" className="hover:text-primary transition-colors">Reviews</Link>
-          <Link href="#faq" className="hover:text-primary transition-colors">FAQ</Link>
+          <Link href="/#benefits" className="hover:text-primary transition-colors">Benefits</Link>
+          <Link href="/#reviews" className="hover:text-primary transition-colors">Reviews</Link>
+          <Link href="/#faq" className="hover:text-primary transition-colors">FAQ</Link>
         </div>
 
         <Button asChild size="sm" className="rounded-full px-6 bg-foreground text-background hover:opacity-90">
-          <Link href="#order">Order Now</Link>
+          <Link href="/order">Order Now</Link>
         </Button>
       </div>
     </nav>

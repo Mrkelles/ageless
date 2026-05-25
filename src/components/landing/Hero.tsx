@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from "react";
@@ -14,6 +15,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export function Hero() {
   const [mainApi, setMainApi] = React.useState<CarouselApi>();
@@ -28,7 +30,6 @@ export function Hero() {
     "hero-carousel-5",
   ];
 
-  // Defensive lookup for hero images
   const heroImages = carouselImageIds.map(id => {
     return (PlaceHolderImages || []).find(img => img && img.id === id);
   }).filter((img): img is NonNullable<typeof img> => !!img && !!img.imageUrl);
@@ -73,7 +74,7 @@ export function Hero() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
             <Button size="lg" className="w-full sm:w-auto rounded-full px-8 py-6 text-lg shadow-xl hover:scale-95 transition-transform" asChild>
-              <a href="#order">Click Here To Order Now</a>
+              <Link href="/order">Click Here To Order Now</Link>
             </Button>
             <div className="flex flex-col items-center sm:items-start">
               <div className="flex text-amber-400 gap-0.5">
