@@ -1,7 +1,7 @@
-
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -17,7 +17,10 @@ import { submitOrder } from "@/app/actions/order";
 
 export function OrderForm() {
   const { toast } = useToast();
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedPkg, setSelectedPkg] = useState("pkg1");
+  const [addUpsell, setAddUpsell] = useState(false);
   
   const upsellImg = getPlaceholderImage("upsell-botox", {
     imageUrl: "https://picsum.photos/seed/serum/600/400",
@@ -25,16 +28,40 @@ export function OrderForm() {
     imageHint: "skincare serum"
   });
 
-  const handleAction = async (formData: FormData) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setIsSubmitting(true);
-    const result = await submitOrder(formData);
-    if (result?.error) {
-      setIsSubmitting(false);
+
+    const formData = new FormData(event.currentTarget);
+    const data = {
+      fullName: formData.get('fullName') as string,
+      phone: formData.get('phone') as string,
+      whatsapp: formData.get('whatsapp') as string,
+      address: formData.get('address') as string,
+      package: selectedPkg,
+      upsell: addUpsell,
+    };
+
+    try {
+      const result = await submitOrder(data);
+      
+      if (result.success) {
+        router.push('/thank-you');
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Submission Error",
+          description: result.error || "Failed to process order. Please check your internet connection.",
+        });
+      }
+    } catch (err) {
       toast({
         variant: "destructive",
-        title: "Submission Error",
-        description: result.error,
+        title: "Error",
+        description: "An unexpected error occurred. Please try again.",
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -51,11 +78,11 @@ export function OrderForm() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <Card className="p-8 border-none lavender-shadow bg-white rounded-[2rem]">
-              <form action={handleAction} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Full Name</Label>
-                    <Input name="name" id="name" placeholder="Enter Your Name" required className="rounded-xl h-12" />
+                    <Label htmlFor="fullName">Full Name</Label>
+                    <Input name="fullName" id="fullName" placeholder="Enter Your Name" required className="rounded-xl h-12" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number</Label>
@@ -75,7 +102,7 @@ export function OrderForm() {
 
                 <div className="space-y-4">
                   <Label className="text-lg font-bold">Select Package</Label>
-                  <RadioGroup name="package" defaultValue="pkg1" className="space-y-3">
+                  <RadioGroup value={selectedPkg} onValueChange={setSelectedPkg} className="space-y-3">
                     <div className="flex items-center space-x-3 p-4 border rounded-2xl hover:bg-primary/5 cursor-pointer transition-colors border-primary/20 bg-primary/5">
                       <RadioGroupItem value="pkg1" id="pkg1" />
                       <Label htmlFor="pkg1" className="flex-1 cursor-pointer">
@@ -115,7 +142,7 @@ export function OrderForm() {
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Checkbox name="upsell" id="upsell" />
+                    <Checkbox id="upsell" checked={addUpsell} onCheckedChange={(val) => setAddUpsell(val as boolean)} />
                     <Label htmlFor="upsell" className="text-sm font-medium cursor-pointer">Yes, add it for just ₦12,000 (Today only!)</Label>
                   </div>
                 </div>
